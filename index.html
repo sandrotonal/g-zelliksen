@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROSÉ — Beauty Studio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{fontFamily:{display:['Syne','sans-serif'],body:['Plus Jakarta Sans','sans-serif']},colors:{rose:{50:'#FFF5F7',100:'#FFE8EE',200:'#FFCCD8',300:'#FFB3C6',400:'#E899AB',500:'#D4738C',600:'#B8506F',700:'#8C3A54',800:'#5C1F33',900:'#3A0F21'},cream:'#FFFAF7',nude:'#F5E6DC',dark:'#110408'}}}}
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cd hidden md:block" id="cd"></div>
+<div class="cr hidden md:block" id="cr"></div>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/902121234567?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" class="wf wp" aria-label="WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- NAV -->
+<nav id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-3 md:px-6 pt-3 md:pt-4">
+  <div class="max-w-7xl mx-auto gl rounded-2xl md:rounded-full px-5 md:px-7 py-2.5 md:py-3 flex items-center justify-between">
+    <a href="#" class="font-display font-800 text-lg md:text-xl tracking-tight text-rose-900 z-50">ROSÉ<span class="inline-block w-1 h-1 rounded-full bg-rose-500 ml-0.5 mb-1.5"></span></a>
+    <div class="hidden md:flex items-center gap-7">
+      <a href="#hizmetler" class="nl font-body font-500 text-[10px] uppercase tracking-[.15em] text-rose-900/50 hover:text-rose-900 transition-colors">Hizmetler</a>
+      <a href="#hakkimizda" class="nl font-body font-500 text-[10px] uppercase tracking-[.15em] text-rose-900/50 hover:text-rose-900 transition-colors">Hakkımızda</a>
+      <a href="#galeri" class="nl font-body font-500 text-[10px] uppercase tracking-[.15em] text-rose-900/50 hover:text-rose-900 transition-colors">Galeri</a>
+      <a href="#yorumlar" class="nl font-body font-500 text-[10px] uppercase tracking-[.15em] text-rose-900/50 hover:text-rose-900 transition-colors">Yorumlar</a>
+      <a href="#iletisim" class="bl bg-rose-900 text-white px-5 py-2 rounded-full font-body font-600 text-[10px] uppercase tracking-[.12em]">Randevu</a>
+    </div>
+    <button class="z-50 md:hidden text-rose-900 p-1" onclick="toggleMenu()"><i data-lucide="menu" class="w-5 h-5" id="mIco"></i></button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div id="mMenu" class="mm fixed inset-0 z-40 bg-rose-900 flex flex-col items-center justify-center gap-5">
+  <a href="#hizmetler" onclick="toggleMenu()" class="font-display text-3xl text-white">Hizmetler</a>
+  <a href="#hakkimizda" onclick="toggleMenu()" class="font-display text-3xl text-white">Hakkımızda</a>
+  <a href="#galeri" onclick="toggleMenu()" class="font-display text-3xl text-white">Galeri</a>
+  <a href="#yorumlar" onclick="toggleMenu()" class="font-display text-3xl text-white">Yorumlar</a>
+  <a href="#iletisim" onclick="toggleMenu()" class="font-display text-3xl text-white">İletişim</a>
+  <div class="flex gap-3 mt-4">
+    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-rose-900 transition-all"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+    <a href="#" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-rose-900 transition-all"><i data-lucide="youtube" class="w-4 h-4"></i></a>
+    <a href="https://wa.me/902121234567" target="_blank" class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  </div>
+</div>
+
+<!-- HERO - 5 Slides -->
+<section class="relative h-screen overflow-hidden bg-dark">
+  <div id="slider" class="absolute inset-0">
+    <div class="sl on"><img src="https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
+    <div class="sl"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
+    <div class="sl"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
+    <div class="sl"><img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
+    <div class="sl"><img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-dark/50 z-10"></div>
+  <div class="relative z-20 h-full flex flex-col justify-end pb-14 md:pb-20 px-5 md:px-10 max-w-7xl mx-auto">
+    <p class="rv font-body font-500 text-[9px] md:text-[10px] uppercase tracking-[.35em] text-white/40 mb-3">Beauty Studio · İstanbul</p>
+    <h1 class="rv d1 font-display font-800 text-[15vw] md:text-[10vw] leading-[.87] tracking-tight text-white">Glow</h1>
+    <h2 class="rv d2 font-body font-300 italic text-[13vw] md:text-[8vw] text-white/70 leading-[.87] tracking-tight -mt-1">Naturally</h2>
+    <div class="rv d3 mt-6 flex flex-wrap items-center gap-3">
+      <a href="#hizmetler" class="bl bg-white text-rose-900 px-6 py-2.5 rounded-full font-display font-700 text-[10px] uppercase tracking-[.1em] flex items-center gap-1.5">Keşfet <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i></a>
+      <a href="#iletisim" class="font-body font-500 text-[10px] uppercase tracking-[.1em] text-white/35 hover:text-white transition-colors">Randevu Al →</a>
+    </div>
+    <div class="flex items-center gap-1.5 mt-6 rv d4">
+      <div class="sdot on" onclick="goSl(0)"></div>
+      <div class="sdot" onclick="goSl(1)"></div>
+      <div class="sdot" onclick="goSl(2)"></div>
+      <div class="sdot" onclick="goSl(3)"></div>
+      <div class="sdot" onclick="goSl(4)"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="py-2.5 bg-rose-900 overflow-hidden">
+  <div class="mq flex whitespace-nowrap">
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Bakımı</span><span class="text-white/8 mx-1">✦</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Makyaj</span><span class="text-white/8 mx-1">✦</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Saç Tasarımı</span><span class="text-white/8 mx-1">✦</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Nail Art</span><span class="text-white/8 mx-1">✦</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">SPA</span><span class="text-white/8 mx-1">✦</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Lazer</span><span class="text-white/8 mx-1">✦</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Bakımı</span><span class="text-white/8 mx-1">✦</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Makyaj</span><span class="text-white/8 mx-1">✦</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Saç Tasarımı</span><span class="text-white/8 mx-1">✦</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Nail Art</span>
+  </div>
+</div>
+
+<!-- HİZMETLER -->
+<section id="hizmetler" class="py-14 md:py-24">
+  <div class="max-w-7xl mx-auto px-5 md:px-10 mb-6">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3">
+      <div>
+        <p class="rv font-body font-500 text-[9px] uppercase tracking-[.3em] text-rose-400">Hizmetlerimiz</p>
+        <h2 class="rv d1 font-display font-800 text-4xl md:text-6xl tracking-tight mt-1">Bakım <span class="shm">Ritüelleri</span></h2>
+      </div>
+      <p class="rv d2 font-body font-300 text-xs md:text-sm text-rose-900/35 max-w-[260px] leading-relaxed">Kendinizi yeniden keşfedeceğiniz eşsiz deneyimler.</p>
+    </div>
+  </div>
+  <div id="hScr" class="hs flex gap-3 md:gap-4 px-4 md:px-6 pb-6">
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d1 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">01</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Cilt Bakımı</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d2 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">02</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Makyaj</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d3 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">03</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Saç Tasarımı</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d4 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">04</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Nail Art</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d5 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">05</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">SPA & Masaj</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d1 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">06</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Epilasyon</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d2 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">07</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Medikal Bakım</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d3 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">08</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Bronzlaşma</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d4 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">09</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Güneş Bakımı</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d5 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1570172619644-dfd03b5ae5e2?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">10</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Anti-Aging</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d1 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">11</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Vücut Bakımı</h3><div class="hl mt-1.5"></div></div></div></div>
+    <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d2 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71ba?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">12</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Gençleştirme</h3><div class="hl mt-1.5"></div></div></div></div>
+  </div>
+  <div class="max-w-7xl mx-auto px-5 md:px-10 mt-8 grid grid-cols-2 md:grid-cols-4 gap-3">
+    <div class="rv d2 hv group cursor-pointer p-3 rounded-xl border border-transparent hover:border-rose-100 transition-all"><i data-lucide="eye" class="w-3.5 h-3.5 text-rose-400 mb-1.5 group-hover:translate-x-0.5 transition-transform"></i><p class="font-display font-600 text-sm text-rose-900">Kirpik & Kaş</p><div class="hl mt-1.5"></div></div>
+    <div class="rv d3 hv group cursor-pointer p-3 rounded-xl border border-transparent hover:border-rose-100 transition-all"><i data-lucide="zap" class="w-3.5 h-3.5 text-rose-400 mb-1.5 group-hover:translate-x-0.5 transition-transform"></i><p class="font-display font-600 text-sm text-rose-900">Lazer</p><div class="hl mt-1.5"></div></div>
+    <div class="rv d4 hv group cursor-pointer p-3 rounded-xl border border-transparent hover:border-rose-100 transition-all"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-rose-400 mb-1.5 group-hover:translate-x-0.5 transition-transform"></i><p class="font-display font-600 text-sm text-rose-900">Cilt Yenileme</p><div class="hl mt-1.5"></div></div>
+    <div class="rv d5 hv group cursor-pointer p-3 rounded-xl border border-transparent hover:border-rose-100 transition-all"><i data-lucide="gem" class="w-3.5 h-3.5 text-rose-400 mb-1.5 group-hover:translate-x-0.5 transition-transform"></i><p class="font-display font-600 text-sm text-rose-900">Lüks Bakım</p><div class="hl mt-1.5"></div></div>
+  </div>
+</section>
+
+<!-- HAKKIMIZDA -->
+<section id="hakkimizda" class="py-14 md:py-24 relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-bl from-rose-100/30 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+  <div class="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr from-rose-50/40 to-transparent rounded-full blur-2xl translate-y-1/3"></div>
+  <div class="max-w-7xl mx-auto px-5 md:px-10 relative">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="order-2 lg:order-1">
+        <p class="rv font-body font-500 text-[9px] uppercase tracking-[.3em] text-rose-400">Hakkımızda</p>
+        <h2 class="rv d1 font-display font-800 text-4xl md:text-5xl lg:text-6xl tracking-tight mt-3 leading-[.93]">Güzelliğin<br><span class="shm">Bizimle</span><br>Başlar</h2>
+        <div class="lg h-px bg-gradient-to-r from-rose-300 to-rose-100 mt-6 mb-6"></div>
+        <p class="rv d2 font-body font-300 text-sm text-rose-900/50 leading-[1.9] max-w-lg">2019'dan beri her dokunuşta fark yaratan, bilimin ve sanatın buluştuğu eşsiz bir güzellik deneyimi sunuyoruz. Cildinizi anlıyor, ruhunuza dokunuyoruz.</p>
+        <div class="rv d3 space-y-4">
+          <div class="flex items-start gap-4 group"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-rose-100 to-rose-50 flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow"><i data-lucide="heart-handshake" class="w-5 h-5 text-rose-500"></i></div><div><p class="font-display font-700 text-sm text-rose-900">Kişiselleştirilmiş Bakım</p><p class="font-body font-300 text-xs text-rose-900/40 mt-0.5">Her cilt hikayesi farklı, her tedavi özgün</p></div></div>
+          <div class="flex items-start gap-4 group"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-rose-100 to-rose-50 flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow"><i data-lucide="microscope" class="w-5 h-5 text-rose-500"></i></div><div><p class="font-display font-700 text-sm text-rose-900">Bilimsel Yaklaşım</p><p class="font-body font-300 text-xs text-rose-900/40 mt-0.5">Son teknoloji cihazlar ve kanıtlanmış formüller</p></div></div>
+          <div class="flex items-start gap-4 group"><div class="w-11 h-11 rounded-xl bg-gradient-to-br from-rose-100 to-rose-50 flex items-center justify-center flex-shrink-0 shadow-sm group-hover:shadow-md transition-shadow"><i data-lucide="gem" class="w-5 h-5 text-rose-500"></i></div><div><p class="font-display font-700 text-sm text-rose-900">Lüks Deneyim</p><p class="font-body font-300 text-xs text-rose-900/40 mt-0.5">Huzur ve konforun buluştuğu alan</p></div></div>
+        </div>
+        <a href="#iletisim" class="rv d4 mt-8 bl bg-rose-900 text-white px-7 py-3 rounded-full font-display font-700 text-[10px] uppercase tracking-[.1em] inline-flex items-center gap-2">Randevu Al <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a>
+      </div>
+      <div class="order-1 lg:order-2 rl flex items-center justify-center">
+        <div class="relative w-full max-w-md">
+          <div class="iw rounded-2xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(212,115,140,0.25)] tc" onmousemove="tilt(event,this)" onmouseleave="untilt(this)">
+            <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=800&h=1000&fit=crop&q=80" alt="Beauty Studio" class="w-full aspect-[4/5] object-cover">
+          </div>
+          
+          
+          <div class="absolute -bottom-3 -right-3 md:-bottom-5 md:-right-5 w-20 h-20 bg-gradient-to-t from-rose-200/20 to-transparent rounded-full blur-xl"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAKIM LİSTESİ -->
+<section class="relative py-14 md:py-24 bg-dark overflow-hidden">
+  <img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=1920&h=1080&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover opacity-15">
+  <div class="relative max-w-7xl mx-auto px-5 md:px-10">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <p class="rv font-body font-500 text-[9px] uppercase tracking-[.3em] text-rose-300/40">Özel Bakım</p>
+        <h2 class="rv d1 font-display font-800 text-4xl md:text-5xl tracking-tight mt-2 leading-[.93] text-white">İpeksi <span class="shm">Cilt</span></h2>
+        <div class="mt-6 divide-y divide-white/8">
+          <div class="rv d2 hv group cursor-pointer py-4 flex items-center justify-between"><div><p class="font-display font-700 text-base text-white group-hover:text-rose-300 transition-colors">Hydra Facial</p><span class="font-body font-400 text-[9px] uppercase tracking-[.12em] text-white/25">90 dk · Derin Nemlendirme</span></div><div class="w-7 h-7 rounded-full border border-white/15 flex items-center justify-center text-white/25 group-hover:bg-rose-500 group-hover:border-rose-500 group-hover:text-white transition-all"><i data-lucide="arrow-up-right" class="w-3 h-3"></i></div></div>
+          <div class="rv d3 hv group cursor-pointer py-4 flex items-center justify-between"><div><p class="font-display font-700 text-base text-white group-hover:text-rose-300 transition-colors">Anti-Aging Serum</p><span class="font-body font-400 text-[9px] uppercase tracking-[.12em] text-white/25">75 dk · Kırışıklık Karşıtı</span></div><div class="w-7 h-7 rounded-full border border-white/15 flex items-center justify-center text-white/25 group-hover:bg-rose-500 group-hover:border-rose-500 group-hover:text-white transition-all"><i data-lucide="arrow-up-right" class="w-3 h-3"></i></div></div>
+          <div class="rv d4 hv group cursor-pointer py-4 flex items-center justify-between"><div><p class="font-display font-700 text-base text-white group-hover:text-rose-300 transition-colors">Chemical Peel</p><span class="font-body font-400 text-[9px] uppercase tracking-[.12em] text-white/25">60 dk · Cilt Yenileme</span></div><div class="w-7 h-7 rounded-full border border-white/15 flex items-center justify-center text-white/25 group-hover:bg-rose-500 group-hover:border-rose-500 group-hover:text-white transition-all"><i data-lucide="arrow-up-right" class="w-3 h-3"></i></div></div>
+          <div class="rv d5 hv group cursor-pointer py-4 flex items-center justify-between"><div><p class="font-display font-700 text-base text-white group-hover:text-rose-300 transition-colors">LED Terapi</p><span class="font-body font-400 text-[9px] uppercase tracking-[.12em] text-white/25">45 dk · Işık Tedavisi</span></div><div class="w-7 h-7 rounded-full border border-white/15 flex items-center justify-center text-white/25 group-hover:bg-rose-500 group-hover:border-rose-500 group-hover:text-white transition-all"><i data-lucide="arrow-up-right" class="w-3 h-3"></i></div></div>
+        </div>
+      </div>
+      <div class="rv d2 hidden lg:block"><div class="tc rounded-2xl overflow-hidden shadow-2xl" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?w=800&h=1000&fit=crop&q=80" class="w-full aspect-[4/5] object-cover"></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERİ -->
+<section id="galeri" class="py-14 md:py-24 bg-cream">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <p class="rv font-body font-500 text-[9px] uppercase tracking-[.3em] text-rose-400">Galeri</p>
+    <h2 class="rv d1 font-display font-800 text-4xl md:text-5xl tracking-tight mt-1 mb-6">Görsel <span class="shm">Seyahat</span></h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 md:gap-2">
+      <div class="rv d1 overflow-hidden rounded-lg group col-span-2 row-span-2"><img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?w=800&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d2 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d3 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d4 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d5 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d1 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d2 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d3 overflow-hidden rounded-lg group col-span-2 row-span-1 aspect-[2/1]"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d4 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d5 overflow-hidden rounded-lg group col-span-2 row-span-2"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d1 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d2 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d3 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d4 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d5 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d1 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+    </div>
+  </div>
+</section>
+
+<!-- YORUMLAR -->
+<section id="yorumlar" class="py-14 md:py-24 relative overflow-hidden">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-rose-100/25 rounded-full blur-3xl"></div>
+  <div class="relative max-w-7xl mx-auto px-5 md:px-10">
+    <div class="text-center mb-10">
+      <p class="rv font-body font-500 text-[9px] uppercase tracking-[.3em] text-rose-400">Yorumlar</p>
+      <h2 class="rv d1 font-display font-800 text-4xl md:text-5xl tracking-tight mt-1">Müşterilerimiz <span class="shm">Ne Diyor?</span></h2>
+    </div>
+    <div class="tgrid">
+      <div class="rv d1 p-5 md:p-6 rounded-2xl border border-rose-100 hover:border-rose-200 hover:shadow-lg hover:shadow-rose-100/50 transition-all duration-400 bg-white/50">
+        <div class="flex items-center gap-0.5 mb-3"><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="font-body font-400 text-sm text-rose-900/65 leading-relaxed italic">"Hydra Facial sonrası cildim ipek gibi oldu. Hayatımı değiştiren bir deneyim!"</p>
+        <div class="flex items-center gap-2.5 mt-4"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=60&h=60&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover"><div><p class="font-body font-600 text-xs text-rose-900">Elif Deniz</p><p class="font-body font-400 text-[10px] text-rose-900/30">2 yıldır geliyorum</p></div></div>
+      </div>
+      <div class="rv d2 p-5 md:p-6 rounded-2xl border border-rose-100 hover:border-rose-200 hover:shadow-lg hover:shadow-rose-100/50 transition-all duration-400 bg-white/50">
+        <div class="flex items-center gap-0.5 mb-3"><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="font-body font-400 text-sm text-rose-900/65 leading-relaxed italic">"Gelin makyajım muhteşemdi! Her anım özenle hazırlandı, kendimi prenses gibi hissettim."</p>
+        <div class="flex items-center gap-2.5 mt-4"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=60&h=60&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover"><div><p class="font-body font-600 text-xs text-rose-900">Selin Aran</p><p class="font-body font-400 text-[10px] text-rose-900/30">Gelin Makyajı</p></div></div>
+      </div>
+      <div class="rv d3 p-5 md:p-6 rounded-2xl border border-rose-100 hover:border-rose-200 hover:shadow-lg hover:shadow-rose-100/50 transition-all duration-400 bg-white/50">
+        <div class="flex items-center gap-0.5 mb-3"><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="font-body font-400 text-sm text-rose-900/65 leading-relaxed italic">"SPA deneyimi bambaşka bir dünya. Her gelişimde yenilenmiş hissediyorum."</p>
+        <div class="flex items-center gap-2.5 mt-4"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=60&h=60&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover"><div><p class="font-body font-600 text-xs text-rose-900">Merve Kaya</p><p class="font-body font-400 text-[10px] text-rose-900/30">VIP Üye · 3 yıl</p></div></div>
+      </div>
+      <div class="rv d4 p-5 md:p-6 rounded-2xl border border-rose-100 hover:border-rose-200 hover:shadow-lg hover:shadow-rose-100/50 transition-all duration-400 bg-white/50">
+        <div class="flex items-center gap-0.5 mb-3"><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="font-body font-400 text-sm text-rose-900/65 leading-relaxed italic">"Balayage sonuçları harika! Tam istediğim tonu yakaladılar, çok memnunum."</p>
+        <div class="flex items-center gap-2.5 mt-4"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=60&h=60&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover"><div><p class="font-body font-600 text-xs text-rose-900">Zeynep Yılmaz</p><p class="font-body font-400 text-[10px] text-rose-900/30">Saç Tasarımı</p></div></div>
+      </div>
+      <div class="rv d5 p-5 md:p-6 rounded-2xl border border-rose-100 hover:border-rose-200 hover:shadow-lg hover:shadow-rose-100/50 transition-all duration-400 bg-white/50">
+        <div class="flex items-center gap-0.5 mb-3"><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="font-body font-400 text-sm text-rose-900/65 leading-relaxed italic">"Kirpik laminasyonu doğal ve muhteşem görünüyor. Herkese tavsiye ederim!"</p>
+        <div class="flex items-center gap-2.5 mt-4"><img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=60&h=60&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover"><div><p class="font-body font-600 text-xs text-rose-900">Ayşe Korkmaz</p><p class="font-body font-400 text-[10px] text-rose-900/30">Kirpik & Kaş</p></div></div>
+      </div>
+      <div class="rv d6 p-5 md:p-6 rounded-2xl border border-rose-100 hover:border-rose-200 hover:shadow-lg hover:shadow-rose-100/50 transition-all duration-400 bg-white/50">
+        <div class="flex items-center gap-0.5 mb-3"><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg class="w-3.5 h-3.5 text-rose-400 fill-rose-400" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        <p class="font-body font-400 text-sm text-rose-900/65 leading-relaxed italic">"Nail art tutkunu olarak en iyi tasarımları burada yaptırıyorum. Her seferinde şaşırtıyorlar!"</p>
+        <div class="flex items-center gap-2.5 mt-4"><img src="https://images.unsplash.com/photo-1502823403499-6ccfcf4fb453?w=60&h=60&fit=crop&q=80" class="w-8 h-8 rounded-full object-cover"><div><p class="font-body font-600 text-xs text-rose-900">Deniz Öztürk</p><p class="font-body font-400 text-[10px] text-rose-900/30">Nail Art · 1 yıl</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- İLETİŞİM / RANDEVU -->
+<section id="iletisim" class="relative overflow-hidden">
+  <div class="bg-dark relative py-14 md:py-20 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=1920&h=600&fit=crop&q=80" class="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay">
+    <div class="absolute top-10 left-10 w-60 h-60 bg-rose-500/5 rounded-full blur-3xl"></div>
+    <div class="relative max-w-7xl mx-auto px-5 md:px-10 text-center">
+      <p class="rv font-body font-500 text-[9px] uppercase tracking-[.3em] text-rose-300/40">Randevu & İletişim</p>
+      <h2 class="rv d1 font-display font-800 text-4xl md:text-6xl tracking-tight mt-3 text-white leading-[.9]">Işıltınız <span class="font-body font-300 italic text-rose-200/60">Burada Başlar</span></h2>
+      <p class="rv d2 font-body font-300 text-sm text-white/30 mt-3 max-w-md mx-auto">Güzellik yolculuğunuza başlamak için ilk adımı atın.</p>
+    </div>
+  </div>
+  <div class="bg-cream py-10 md:py-16">
+    <div class="max-w-5xl mx-auto px-5 md:px-10">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-5">
+        <div class="lg:col-span-3 rv d1">
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-rose-100/50">
+            <div class="flex items-center gap-2 mb-5">
+              <div class="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center"><i data-lucide="calendar-check" class="w-4 h-4 text-rose-500"></i></div>
+              <div><h3 class="font-display font-700 text-lg text-rose-900">Randevu Al</h3><p class="font-body font-300 text-[10px] text-rose-900/30">Size en uygun zamanı belirleyin</p></div>
+            </div>
+            <div class="space-y-3">
+              <div><label class="font-body font-500 text-[9px] uppercase tracking-[.12em] text-rose-900/30 block mb-1">Adınız</label><input type="text" placeholder="Adınız Soyadınız" class="fi w-full bg-cream/50 border border-rose-100 rounded-xl px-3.5 py-2.5 text-sm text-rose-900 placeholder-rose-900/20 font-body"></div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div><label class="font-body font-500 text-[9px] uppercase tracking-[.12em] text-rose-900/30 block mb-1">Telefon</label><input type="tel" placeholder="05XX XXX XX XX" class="fi w-full bg-cream/50 border border-rose-100 rounded-xl px-3.5 py-2.5 text-sm text-rose-900 placeholder-rose-900/20 font-body"></div>
+                <div><label class="font-body font-500 text-[9px] uppercase tracking-[.12em] text-rose-900/30 block mb-1">Tarih</label><input type="date" class="fi w-full bg-cream/50 border border-rose-100 rounded-xl px-3.5 py-2.5 text-sm text-rose-900/50 font-body"></div>
+              </div>
+              <div><label class="font-body font-500 text-[9px] uppercase tracking-[.12em] text-rose-900/30 block mb-1">Hizmet</label><select class="fi w-full bg-cream/50 border border-rose-100 rounded-xl px-3.5 py-2.5 text-sm text-rose-900/50 font-body appearance-none"><option>Hizmet seçin</option><option>Cilt Bakımı</option><option>Makyaj</option><option>Saç Tasarımı</option><option>Nail Art</option><option>SPA & Masaj</option><option>Kirpik & Kaş</option></select></div>
+              <div><label class="font-body font-500 text-[9px] uppercase tracking-[.12em] text-rose-900/30 block mb-1">Notunuz</label><textarea rows="2" placeholder="Varsa eklemek istediğiniz..." class="fi w-full bg-cream/50 border border-rose-100 rounded-xl px-3.5 py-2.5 text-sm text-rose-900 placeholder-rose-900/20 font-body resize-none"></textarea></div>
+            </div>
+            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <button class="bl bg-rose-900 text-white px-5 py-3 rounded-xl font-display font-700 text-xs uppercase tracking-[.08em] flex items-center justify-center gap-1.5">Randevu Al <i data-lucide="calendar-check" class="w-3.5 h-3.5"></i></button>
+              <a href="https://wa.me/902121234567?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" class="flex items-center justify-center gap-1.5 bg-[#25D366] hover:bg-[#20BD5A] text-white px-5 py-3 rounded-xl font-display font-700 text-xs uppercase tracking-[.08em] transition-colors"><svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-2 space-y-3 rv d2">
+          <a href="tel:+902121234567" class="flex items-center gap-3 p-4 bg-white rounded-2xl border border-rose-100/50 hover:border-rose-200 hover:shadow-md transition-all duration-300 group">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center group-hover:bg-rose-100 transition-colors flex-shrink-0"><i data-lucide="phone" class="w-4 h-4 text-rose-500"></i></div>
+            <div><p class="font-body font-500 text-[9px] uppercase tracking-[.1em] text-rose-900/30">Telefon</p><p class="font-display font-700 text-sm text-rose-900">+90 212 123 4567</p></div>
+          </a>
+          <a href="https://wa.me/902121234567?text=Merhaba%2C%20randevu%20almak%20istiyorum." target="_blank" class="flex items-center gap-3 p-4 bg-white rounded-2xl border border-green-100/50 hover:border-green-200 hover:shadow-md transition-all duration-300 group">
+            <div class="w-10 h-10 rounded-xl bg-green-50 flex items-center justify-center group-hover:bg-green-100 transition-colors flex-shrink-0"><svg class="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+            <div class="flex-1"><p class="font-body font-500 text-[9px] uppercase tracking-[.1em] text-rose-900/30">WhatsApp</p><p class="font-display font-700 text-sm text-rose-900">Hemen Yazın</p></div>
+            <span class="inline-flex items-center gap-1 bg-green-50 text-green-600 px-2 py-0.5 rounded-full text-[8px] font-body font-600 uppercase tracking-wider"><span class="w-1 h-1 rounded-full bg-green-500 animate-pulse"></span>Açık</span>
+          </a>
+          <a href="mailto:merhaba@rose.beauty" class="flex items-center gap-3 p-4 bg-white rounded-2xl border border-rose-100/50 hover:border-rose-200 hover:shadow-md transition-all duration-300 group">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center group-hover:bg-rose-100 transition-colors flex-shrink-0"><i data-lucide="mail" class="w-4 h-4 text-rose-500"></i></div>
+            <div><p class="font-body font-500 text-[9px] uppercase tracking-[.1em] text-rose-900/30">E-posta</p><p class="font-display font-700 text-sm text-rose-900">merhaba@rose.beauty</p></div>
+          </a>
+          <div class="flex items-center gap-3 p-4 bg-white rounded-2xl border border-rose-100/50">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center flex-shrink-0"><i data-lucide="map-pin" class="w-4 h-4 text-rose-500"></i></div>
+            <div><p class="font-body font-500 text-[9px] uppercase tracking-[.1em] text-rose-900/30">Adres</p><p class="font-display font-700 text-sm text-rose-900">Nişantaşı, Valikonağı Cd. 42</p></div>
+          </div>
+          <div class="flex items-center gap-3 p-4 bg-white rounded-2xl border border-rose-100/50">
+            <div class="w-10 h-10 rounded-xl bg-rose-50 flex items-center justify-center flex-shrink-0"><i data-lucide="clock" class="w-4 h-4 text-rose-500"></i></div>
+            <div><p class="font-body font-500 text-[9px] uppercase tracking-[.1em] text-rose-900/30">Çalışma Saatleri</p><p class="font-display font-700 text-sm text-rose-900">Pzt-Cmt: 09:00-21:00</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-rose-900 text-white relative overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-400/20 to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-5 md:px-10 pt-14 pb-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+      <div class="lg:col-span-2">
+        <p class="font-display font-800 text-3xl md:text-4xl tracking-tight leading-tight">Güzellik<br>Bizimle<br><span class="shm">Başlar</span></p>
+        <div class="flex items-center gap-2.5 mt-5">
+          <a href="https://instagram.com" target="_blank" class="si w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-rose-900 hover:border-white transition-all" aria-label="Instagram"><svg class="w-[16px] h-[16px]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://tiktok.com" target="_blank" class="si w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-rose-900 hover:border-white transition-all" aria-label="TikTok"><svg class="w-[16px] h-[16px]" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48v-7.15a8.16 8.16 0 005.58 2.2V11.2a4.85 4.85 0 01-3.59-1.58 4.83 4.83 0 01-1.25-3.43h3.45v.5a4.83 4.83 0 003.39 1.93V6.69z"/></svg></a>
+          <a href="https://youtube.com" target="_blank" class="si w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-rose-900 hover:border-white transition-all" aria-label="YouTube"><svg class="w-[16px] h-[16px]" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="https://twitter.com" target="_blank" class="si w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-rose-900 hover:border-white transition-all" aria-label="X"><svg class="w-[14px] h-[14px]" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://wa.me/902121234567" target="_blank" class="si w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all" aria-label="WhatsApp"><svg class="w-[16px] h-[16px]" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p class="font-display font-700 text-[10px] uppercase tracking-[.15em] text-white/20 mb-4">Menü</p>
+        <ul class="space-y-2"><li><a href="#hizmetler" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">Hizmetler</a></li><li><a href="#hakkimizda" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">Hakkımızda</a></li><li><a href="#galeri" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">Galeri</a></li><li><a href="#yorumlar" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">Yorumlar</a></li><li><a href="#iletisim" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">İletişim</a></li></ul>
+      </div>
+      <div>
+        <p class="font-display font-700 text-[10px] uppercase tracking-[.15em] text-white/20 mb-4">İletişim</p>
+        <ul class="space-y-2">
+          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><span class="font-body font-400 text-sm text-white/35">Nişantaşı, İstanbul</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><a href="tel:+902121234567" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">+90 212 123 4567</a></li>
+          <li class="flex items-center gap-2"><i data-lucide="mail" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><a href="mailto:merhaba@rose.beauty" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">merhaba@rose.beauty</a></li>
+          <li class="flex items-center gap-2"><i data-lucide="clock" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><span class="font-body font-400 text-sm text-white/35">Pzt-Cmt: 09:00-21:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/8 pt-5 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="font-body font-400 text-[10px] text-white/12">© 2024 ROSÉ Beauty Studio. Tüm hakları saklıdır.</p>
+      <div class="flex gap-5"><a href="gizlilik.html" class="font-body font-400 text-[10px] text-white/12 hover:text-white/25 transition-colors">Gizlilik</a><a href="kosullar.html" class="font-body font-400 text-[10px] text-white/12 hover:text-white/25 transition-colors">Koşullar</a><a href="kvkk.html" class="font-body font-400 text-[10px] text-white/12 hover:text-white/25 transition-colors">KVKK</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

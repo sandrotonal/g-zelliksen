@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KVKK Aydınlatma Metni — ROSÉ Beauty Studio</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<script>
+tailwind.config={theme:{extend:{fontFamily:{display:['Syne','sans-serif'],body:['Plus Jakarta Sans','sans-serif']},colors:{rose:{50:'#FFF5F7',100:'#FFE8EE',200:'#FFCCD8',300:'#FFB3C6',400:'#E899AB',500:'#D4738C',600:'#B8506F',700:'#8C3A54',800:'#5C1F33',900:'#3A0F21'},cream:'#FFFAF7',nude:'#F5E6DC',dark:'#110408'}}}}
+</script>
+<link rel="stylesheet" href="css/style.css">
+<style>
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#FFFAF7;color:#3A0F21;cursor:auto}
+
+/* Nav Link - exactly like index.html */
+.nl{position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:rgba(58,15,33,.5);transition:color .25s}
+.nl::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#D4738C;transition:width .35s cubic-bezier(.16,1,.3,1)}
+.nl:hover{color:rgba(58,15,33,1)}
+.nl:hover::after{width:100%}
+
+/* Logo font */
+.logo-font{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;letter-spacing:-0.02em;color:#3A0F21}
+@media(min-width:768px){.logo-font{font-size:20px}}
+
+/* Section label */
+.sec-label{font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:9px;text-transform:uppercase;letter-spacing:.3em;color:#E899AB}
+
+/* Page title */
+.title-font{font-family:'Syne',sans-serif;font-weight:800;font-size:2.25rem;letter-spacing:-0.02em;color:#3A0F21;line-height:.93}
+@media(min-width:768px){.title-font{font-size:3rem}}
+@media(min-width:1024px){.title-font{font-size:3.75rem}}
+
+/* Content styles */
+.lc h2{font-family:'Syne',sans-serif;font-weight:800;font-size:1.125rem;color:#3A0F21;margin-top:1.75rem;margin-bottom:0.75rem;letter-spacing:-0.01em}
+.lc p{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:rgba(58,15,33,.7);line-height:1.8;margin-bottom:0.875rem}
+.lc ul{list-style:none;padding:0;margin-bottom:0.875rem}
+.lc ul li{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:rgba(58,15,33,.7);line-height:1.7;padding-left:1.25rem;position:relative;margin-bottom:0.4rem}
+.lc ul li::before{content:'✦';position:absolute;left:0;color:#D4738C;font-size:10px;top:0.35rem}
+.lc .lu{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(58,15,33,.35);font-style:italic}
+.lc .hb{background:linear-gradient(135deg,#FFF5F7,#FFE8EE);border:1px solid #FFCCD8;border-radius:16px;padding:1.25rem;margin:1.25rem 0}
+.lc .hb p{font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;color:#3A0F21;margin-bottom:0}
+.lc h3{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:#8C3A54;margin-top:1.25rem;margin-bottom:0.5rem}
+
+/* Shimmer */
+@keyframes shm{0%{background-position:-200% 0}100%{background-position:200% 0}}
+.shm{background:linear-gradient(90deg,#5C1F33,#D4738C,#E899AB,#D4738C,#5C1F33);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shm 5s linear infinite}
+
+/* Social Icon */
+.si{transition:all .25s cubic-bezier(.16,1,.3,1);cursor:pointer}.si:hover{transform:translateY(-2px) scale(1.05)}
+
+/* Menu links in footer */
+.menu-link{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:rgba(255,255,255,.35);transition:color .25s;cursor:pointer}
+.menu-link:hover{color:rgba(255,255,255,1)}
+
+/* Contact text in footer */
+.contact-text{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:rgba(255,255,255,.35)}
+
+/* Footer titles */
+.footer-title{font-family:'Syne',sans-serif;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.2)}
+
+/* Footer logo */
+.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.875rem;letter-spacing:-0.02em;line-height:1.1}
+
+/* Copyright */
+.copyright{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:10px;color:rgba(255,255,255,.12)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-3 md:px-6 pt-3 md:pt-4" style="background:rgba(255,250,247,.95);box-shadow:0 4px 20px rgba(60,20,30,.06)">
+  <div class="max-w-7xl mx-auto gl rounded-2xl md:rounded-full px-5 md:px-7 py-2.5 md:py-3 flex items-center justify-between">
+    <a href="index.html" class="logo-font z-50">ROSÉ<span class="inline-block w-1 h-1 rounded-full bg-rose-500 ml-0.5 mb-1.5"></span></a>
+    <div class="hidden md:flex items-center gap-7">
+      <a href="index.html#hizmetler" class="nl">Hizmetler</a>
+      <a href="index.html#hakkimizda" class="nl">Hakkımızda</a>
+      <a href="index.html#galeri" class="nl">Galeri</a>
+      <a href="index.html#yorumlar" class="nl">Yorumlar</a>
+      <a href="index.html#iletisim" class="bl bg-rose-900 text-white px-5 py-2 rounded-full font-body font-600 text-[10px] uppercase tracking-[.12em] cursor-pointer">Randevu</a>
+    </div>
+    <a href="index.html" class="md:hidden text-rose-900 p-1 cursor-pointer"><i data-lucide="arrow-left" class="w-5 h-5"></i></a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<section class="pt-28 md:pt-36 pb-10 md:pb-14 px-5 md:px-10 text-center" style="background:linear-gradient(180deg,#FFE8EE 0%,#FFFAF7 100%)">
+  <p class="sec-label mb-3">ROSÉ Beauty Studio</p>
+  <h1 class="title-font">KVKK <span class="shm">Aydınlatma</span></h1>
+  <p class="lu mt-4">Son güncelleme: Ocak 2025</p>
+</section>
+
+<!-- CONTENT -->
+<section class="max-w-4xl mx-auto px-5 md:px-10 pb-16 md:pb-24">
+  <div class="lc bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-sm border border-rose-100/50">
+
+    <div class="hb">
+      <p><strong>6698 Sayılı Kişisel Verilerin Korunması Kanunu (KVKK)</strong> kapsamında kişisel verilerinizin işlenmesi, saklanması ve aktarılması hakkında sizi bilgilendirmek istiyoruz.</p>
+    </div>
+
+    <h2>1. Veri Sorumlusu</h2>
+    <p>6698 sayılı KVKK kapsamında veri sorumlusu sıfatıyla hareket eden kuruluşumuz:</p>
+    <ul>
+      <li><strong>Unvan:</strong> ROSÉ Beauty Studio</li>
+      <li><strong>Adres:</strong> Nişantaşı, Valikonağı Cd. 42, İstanbul</li>
+      <li><strong>Telefon:</strong> +90 212 123 4567</li>
+      <li><strong>E-posta:</strong> merhaba@rose.beauty</li>
+    </ul>
+
+    <h2>2. İşlenen Kişisel Veriler</h2>
+    <p>Hizmetlerimiz kapsamında aşağıdaki kişisel verileriniz işlenmektedir:</p>
+    
+    <h3>Kimlik Bilgileri</h3>
+    <ul>
+      <li>Ad ve soyad</li>
+      <li>T.C. kimlik numarası (yasal zorunluluk durumlarında)</li>
+    </ul>
+    
+    <h3>İletişim Bilgileri</h3>
+    <ul>
+      <li>Telefon numarası</li>
+      <li>E-posta adresi</li>
+      <li>Adres bilgisi</li>
+    </ul>
+    
+    <h3>Sağlık Bilgileri</h3>
+    <ul>
+      <li>Alerji ve sağlık durumu bilgileri (hizmet güvenliği için)</li>
+      <li>Hamilelik durumu (uygun hizmet seçimi için)</li>
+    </ul>
+
+    <h2>3. Kişisel Verilerin İşlenme Amaçları</h2>
+    <p>Kişisel verileriniz aşağıdaki amaçlarla işlenmektedir:</p>
+    <ul>
+      <li>Hizmetlerin sunulması ve yürütülmesi</li>
+      <li>Randevu oluşturma ve hatırlatma</li>
+      <li>Müşteri ilişkileri yönetimi</li>
+      <li>Yasal yükümlülüklerin yerine getirilmesi</li>
+      <li>Pazarlama ve kampanya faaliyetleri (onayınız dahilinde)</li>
+      <li>İstatistiksel analizler ve hizmet geliştirme</li>
+    </ul>
+
+    <h2>4. Kişisel Verilerin Aktarılması</h2>
+    <p>Kişisel verileriniz, KVKK'nın 8. ve 9. maddelerinde belirtilen şartlara uygun olarak aşağıdaki taraflara aktarılabilir:</p>
+    <ul>
+      <li><strong>Yasal zorunluluklar:</strong> Kamu kurum ve kuruluşları, adli makamlar</li>
+      <li><strong>Hizmet sağlayıcılar:</strong> Ödeme işlemcileri, yazılım hizmet sağlayıcıları</li>
+      <li><strong>İş ortakları:</strong> Anlaşmalı tedarikçiler ve iş birliği içinde olduğumuz kuruluşlar</li>
+    </ul>
+    <p>Kişisel verileriniz satış veya pazarlama amacıyla üçüncü taraflarla paylaşılmamaktadır.</p>
+
+    <h2>5. Kişisel Veri Saklama Süresi</h2>
+    <p>Kişisel verileriniz, işleme amacının gerektirdiği süre boyunca ve yasal saklama süreleri dahilinde saklanmaktadır. Bu sürelerin sona ermesiyle verileriniz silinmekte, yok edilmekte veya anonim hale getirilmektedir.</p>
+
+    <h2>6. Veri Sahibinin Hakları</h2>
+    <p>KVKK'nın 11. maddesi kapsamında aşağıdaki haklara sahipsiniz:</p>
+    <ul>
+      <li><strong>Bilgi alma:</strong> Kişisel verilerinizin işlenip işlenmediğini öğrenme</li>
+      <li><strong>Erişim:</strong> İşlenen kişisel verilerinize erişim talep etme</li>
+      <li><strong>Düzeltme:</strong> Eksik veya yanlış işlenen verilerin düzeltilmesini isteme</li>
+      <li><strong>Silme:</strong> Kişisel verilerinizin silinmesini veya yok edilmesini talep etme</li>
+      <li><strong>Kısıtlama:</strong> Verilerinizin işlenmesinin kısıtlanmasını isteme</li>
+      <li><strong>İtiraz:</strong> Verilerinizin işlenmesine itiraz etme</li>
+      <li><strong>Taşınabilirlik:</strong> Verilerinizin başka bir veri sorumlusuna aktarılmasını talep etme</li>
+    </ul>
+
+    <h2>7. Başvuru Yöntemi</h2>
+    <p>KVKK kapsamındaki haklarınızı kullanmak için:</p>
+    <ul>
+      <li><strong>E-posta:</strong> merhaba@rose.beauty adresine talebinizi gönderebilirsiniz</li>
+      <li><strong>Yazılı başvuru:</strong> Nişantaşı, Valikonağı Cd. 42, İstanbul adresine dilekçe ile başvurabilirsiniz</li>
+    </ul>
+    <p>Başvurularınız en geç 30 gün içinde ücretsiz olarak sonuçlandırılacaktır.</p>
+
+    <h2>8. Değişiklikler</h2>
+    <p>Bu aydınlatma metni, yasal düzenlemeler ve şirket politikalarındaki değişiklikler doğrultusunda güncellenebilir. Güncellemeler web sitemizde yayınlanacaktır.</p>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-rose-900 text-white relative overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-400/20 to-transparent"></div>
+  <div class="max-w-7xl mx-auto px-5 md:px-10 pt-14 pb-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+      <div class="lg:col-span-2">
+        <p class="footer-logo">Güzellik<br>Bizimle<br><span class="shm">Başlar</span></p>
+        <div class="flex items-center gap-2.5 mt-5">
+          <a href="#" class="si w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-rose-900 hover:border-white transition-all" aria-label="Instagram"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="#" class="si w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-rose-900 hover:border-white transition-all" aria-label="YouTube"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="#" class="si w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-[#25D366] hover:border-[#25D366] transition-all" aria-label="WhatsApp"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p class="footer-title mb-4">Menü</p>
+        <ul class="space-y-2">
+          <li><a href="index.html#hizmetler" class="menu-link">Hizmetler</a></li>
+          <li><a href="index.html#hakkimizda" class="menu-link">Hakkımızda</a></li>
+          <li><a href="index.html#galeri" class="menu-link">Galeri</a></li>
+          <li><a href="index.html#iletisim" class="menu-link">İletişim</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-title mb-4">İletişim</p>
+        <ul class="space-y-2">
+          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><span class="contact-text">Nişantaşı, İstanbul</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><a href="tel:+902121234567" class="contact-text hover:text-white transition-colors cursor-pointer">+90 212 123 4567</a></li>
+          <li class="flex items-center gap-2"><i data-lucide="mail" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><a href="mailto:merhaba@rose.beauty" class="contact-text hover:text-white transition-colors cursor-pointer">merhaba@rose.beauty</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/8 pt-5 flex flex-col md:flex-row items-center justify-between gap-3">
+      <p class="copyright">© 2024 ROSÉ Beauty Studio. Tüm hakları saklıdır.</p>
+      <div class="flex gap-5">
+        <a href="gizlilik.html" class="copyright hover:text-white/25 transition-colors cursor-pointer">Gizlilik</a>
+        <a href="kosullar.html" class="copyright hover:text-white/25 transition-colors cursor-pointer">Koşullar</a>
+        <a href="kvkk.html" class="copyright hover:text-white/25 transition-colors cursor-pointer">KVKK</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>
