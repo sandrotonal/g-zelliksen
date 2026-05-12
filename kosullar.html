@@ -10,90 +10,77 @@
 <script>
 tailwind.config={theme:{extend:{fontFamily:{display:['Syne','sans-serif'],body:['Plus Jakarta Sans','sans-serif']},colors:{rose:{50:'#FFF5F7',100:'#FFE8EE',200:'#FFCCD8',300:'#FFB3C6',400:'#E899AB',500:'#D4738C',600:'#B8506F',700:'#8C3A54',800:'#5C1F33',900:'#3A0F21'},cream:'#FFFAF7',nude:'#F5E6DC',dark:'#110408'}}}}
 </script>
-<link rel="stylesheet" href="css/style.css">
 <style>
 html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#FFFAF7;color:#3A0F21;cursor:auto}
-
-/* Nav Link - exactly like index.html */
-.nl{position:relative;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:rgba(58,15,33,.5);transition:color .25s}
-.nl::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:#D4738C;transition:width .35s cubic-bezier(.16,1,.3,1)}
-.nl:hover{color:rgba(58,15,33,1)}
-.nl:hover::after{width:100%}
-
-/* Logo font */
-.logo-font{font-family:'Syne',sans-serif;font-weight:800;font-size:18px;letter-spacing:-0.02em;color:#3A0F21}
-@media(min-width:768px){.logo-font{font-size:20px}}
-
-/* Section label */
-.sec-label{font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:9px;text-transform:uppercase;letter-spacing:.3em;color:#E899AB}
-
-/* Page title */
-.title-font{font-family:'Syne',sans-serif;font-weight:800;font-size:2.25rem;letter-spacing:-0.02em;color:#3A0F21;line-height:.93}
-@media(min-width:768px){.title-font{font-size:3rem}}
-@media(min-width:1024px){.title-font{font-size:3.75rem}}
-
-/* Content styles */
-.lc h2{font-family:'Syne',sans-serif;font-weight:800;font-size:1.125rem;color:#3A0F21;margin-top:1.75rem;margin-bottom:0.75rem;letter-spacing:-0.01em}
-.lc p{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:rgba(58,15,33,.7);line-height:1.8;margin-bottom:0.875rem}
-.lc ul{list-style:none;padding:0;margin-bottom:0.875rem}
-.lc ul li{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:rgba(58,15,33,.7);line-height:1.7;padding-left:1.25rem;position:relative;margin-bottom:0.4rem}
-.lc ul li::before{content:'✦';position:absolute;left:0;color:#D4738C;font-size:10px;top:0.35rem}
-.lc .lu{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(58,15,33,.35);font-style:italic}
-
-/* Shimmer */
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#FFFAF7;color:#3A0F21}
+h1,h2,h3,h4,h5,h6{font-family:'Syne',sans-serif}
+.bl{transition:all .35s cubic-bezier(.16,1,.3,1);cursor:pointer}
+.bl:hover{transform:translateY(-1px);box-shadow:0 8px 25px -8px rgba(180,80,111,.3)}
+.mm{transition:transform .45s cubic-bezier(.16,1,.3,1),opacity .45s cubic-bezier(.16,1,.3,1);transform:translateX(100%);opacity:0}
+.mm.on{transform:translateX(0);opacity:1}
+.rv{opacity:0;transform:translateY(18px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+.rv.on{opacity:1;transform:translateY(0)}
+.gl{background:rgba(255,250,247,.8);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);border:1px solid rgba(255,200,210,.15)}
+.lg{background:linear-gradient(135deg,#FFE8EE 0%,#FFFAF7 100%)}
+.hl{width:18px;height:1px;background:linear-gradient(90deg,transparent,#D4738C,transparent)}
+.shm{background:linear-gradient(90deg,#5C1F33,#D4738C,#E899AB,#D4738C,#5C1F33);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:inline-block}
 @keyframes shm{0%{background-position:-200% 0}100%{background-position:200% 0}}
-.shm{background:linear-gradient(90deg,#5C1F33,#D4738C,#E899AB,#D4738C,#5C1F33);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:shm 5s linear infinite}
-
-/* Social Icon */
+.shm{animation:shm 5s linear infinite}
 .si{transition:all .25s cubic-bezier(.16,1,.3,1);cursor:pointer}.si:hover{transform:translateY(-2px) scale(1.05)}
-
-/* Menu links in footer */
-.menu-link{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:rgba(255,255,255,.35);transition:color .25s;cursor:pointer}
-.menu-link:hover{color:rgba(255,255,255,1)}
-
-/* Contact text in footer */
-.contact-text{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:rgba(255,255,255,.35)}
-
-/* Footer titles */
-.footer-title{font-family:'Syne',sans-serif;font-weight:700;font-size:10px;text-transform:uppercase;letter-spacing:.15em;color:rgba(255,255,255,.2)}
-
-/* Footer logo */
-.footer-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.875rem;letter-spacing:-0.02em;line-height:1.1}
-
-/* Copyright */
-.copyright{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:10px;color:rgba(255,255,255,.12)}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-3 md:px-6 pt-3 md:pt-4" style="background:rgba(255,250,247,.95);box-shadow:0 4px 20px rgba(60,20,30,.06)">
+<nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-3 md:px-6 pt-3 md:pt-4">
   <div class="max-w-7xl mx-auto gl rounded-2xl md:rounded-full px-5 md:px-7 py-2.5 md:py-3 flex items-center justify-between">
-    <a href="index.html" class="logo-font z-50">ROSÉ<span class="inline-block w-1 h-1 rounded-full bg-rose-500 ml-0.5 mb-1.5"></span></a>
+    <a href="index.html" class="font-display font-800 text-lg md:text-xl tracking-tight text-rose-900 z-50">ROSÉ<span class="inline-block w-1 h-1 rounded-full bg-rose-500 ml-0.5 mb-1.5"></span></a>
     <div class="hidden md:flex items-center gap-7">
-      <a href="index.html#hizmetler" class="nl">Hizmetler</a>
-      <a href="index.html#hakkimizda" class="nl">Hakkımızda</a>
-      <a href="index.html#galeri" class="nl">Galeri</a>
-      <a href="index.html#yorumlar" class="nl">Yorumlar</a>
-      <a href="index.html#iletisim" class="bl bg-rose-900 text-white px-5 py-2 rounded-full font-body font-600 text-[10px] uppercase tracking-[.12em] cursor-pointer">Randevu</a>
+      <a href="index.html#hizmetler" class="font-body font-500 text-[10px] uppercase tracking-[.15em] text-rose-900/50 hover:text-rose-900 transition-colors">Hizmetler</a>
+      <a href="index.html#hakkimizda" class="font-body font-500 text-[10px] uppercase tracking-[.15em] text-rose-900/50 hover:text-rose-900 transition-colors">Hakkımızda</a>
+      <a href="index.html#galeri" class="font-body font-500 text-[10px] uppercase tracking-[.15em] text-rose-900/50 hover:text-rose-900 transition-colors">Galeri</a>
+      <a href="index.html#yorumlar" class="font-body font-500 text-[10px] uppercase tracking-[.15em] text-rose-900/50 hover:text-rose-900 transition-colors">Yorumlar</a>
+      <a href="index.html#iletisim" class="bl bg-rose-900 text-white px-5 py-2 rounded-full font-body font-600 text-[10px] uppercase tracking-[.12em]">Randevu</a>
     </div>
-    <a href="index.html" class="md:hidden text-rose-900 p-1 cursor-pointer"><i data-lucide="arrow-left" class="w-5 h-5"></i></a>
+    <button class="z-50 md:hidden text-rose-900 p-1" onclick="toggleMenu()"><i data-lucide="menu" class="w-5 h-5" id="mIco"></i></button>
   </div>
 </nav>
 
+<!-- Mobile Menu -->
+<div id="mMenu" class="mm fixed inset-0 z-40 bg-rose-900 flex flex-col items-center justify-center gap-5">
+  <a href="index.html" class="font-display text-3xl text-white">Ana Sayfa</a>
+  <a href="index.html#hizmetler" onclick="toggleMenu()" class="font-display text-3xl text-white">Hizmetler</a>
+  <a href="index.html#hakkimizda" onclick="toggleMenu()" class="font-display text-3xl text-white">Hakkımızda</a>
+  <a href="index.html#galeri" onclick="toggleMenu()" class="font-display text-3xl text-white">Galeri</a>
+  <a href="index.html#yorumlar" onclick="toggleMenu()" class="font-display text-3xl text-white">Yorumlar</a>
+  <a href="index.html#iletisim" onclick="toggleMenu()" class="font-display text-3xl text-white">İletişim</a>
+</div>
+
 <!-- HEADER -->
-<section class="pt-28 md:pt-36 pb-10 md:pb-14 px-5 md:px-10 text-center" style="background:linear-gradient(180deg,#FFE8EE 0%,#FFFAF7 100%)">
-  <p class="sec-label mb-3">ROSÉ Beauty Studio</p>
-  <h1 class="title-font">Kullanım <span class="shm">Koşulları</span></h1>
-  <p class="lu mt-4">Son güncelleme: Ocak 2025</p>
+<section class="pt-28 md:pt-36 pb-12 md:pb-16 px-5 md:px-10 text-center relative overflow-hidden">
+  <div class="absolute top-0 right-0 w-80 h-80 bg-gradient-to-bl from-rose-100/40 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+  <div class="absolute bottom-0 left-0 w-60 h-60 bg-gradient-to-tr from-rose-50/40 to-transparent rounded-full blur-2xl translate-y-1/3"></div>
+  <div class="relative">
+    <p class="font-body font-500 text-[9px] uppercase tracking-[.3em] text-rose-400 mb-3 rv">ROSÉ Beauty Studio</p>
+    <h1 class="font-display font-800 text-4xl md:text-5xl lg:text-6xl tracking-tight leading-[.93] rv d1">Kullanım <span class="shm">Koşulları</span></h1>
+    <div class="w-12 h-px bg-gradient-to-r from-transparent via-rose-300 to-transparent mx-auto mt-6"></div>
+    <p class="font-body font-400 text-xs text-rose-900/35 italic mt-4 rv d2">Son güncelleme: Ocak 2025</p>
+  </div>
 </section>
 
 <!-- CONTENT -->
 <section class="max-w-4xl mx-auto px-5 md:px-10 pb-16 md:pb-24">
-  <div class="lc bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-sm border border-rose-100/50">
+  <div class="lc bg-white rounded-2xl md:rounded-3xl p-6 md:p-10 shadow-sm border border-rose-100/50 rv d1">
+    <style>
+    .lc h2{font-family:'Syne',sans-serif;font-weight:800;font-size:1.125rem;color:#3A0F21;margin-top:1.75rem;margin-bottom:0.75rem;letter-spacing:-0.01em}
+    .lc p{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:rgba(58,15,33,.7);line-height:1.8;margin-bottom:0.875rem}
+    .lc ul{list-style:none;padding:0;margin-bottom:0.875rem}
+    .lc ul li{font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:14px;color:rgba(58,15,33,.7);line-height:1.7;padding-left:1.25rem;position:relative;margin-bottom:0.4rem}
+    .lc ul li::before{content:'✦';position:absolute;left:0;color:#D4738C;font-size:10px;top:0.35rem}
+    .lc .lu{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:rgba(58,15,33,.35);font-style:italic}
+    </style>
 
-    <p>ROSÉ Beauty Studio web sitesine ve hizmetlerine erişim sağladığınızda, aşağıdaki kullanım koşullarını kabul etmiş sayılırsınız. Lütfen bu koşulları dikkatlice okuyunuz.</p>
+    <p class="text-sm text-rose-900/70 leading-relaxed">ROSÉ Beauty Studio web sitesine ve hizmetlerine erişim sağladığınızda, aşağıdaki kullanım koşullarını kabul etmiş sayılırsınız. Lütfen bu koşulları dikkatlice okuyunuz.</p>
 
     <h2>1. Kabul Edilen Koşullar</h2>
     <p>Web sitemizi ve hizmetlerimizi kullanarak, bu kullanım koşullarını kabul etmiş olursunuz. Bu koşulları kabul etmiyorsanız, lütfen web sitemizi kullanmayınız.</p>
@@ -176,7 +163,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#FFFAF7;color:#3A0F21
   <div class="max-w-7xl mx-auto px-5 md:px-10 pt-14 pb-6">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
       <div class="lg:col-span-2">
-        <p class="footer-logo">Güzellik<br>Bizimle<br><span class="shm">Başlar</span></p>
+        <p class="font-display font-800 text-3xl leading-[1.1] tracking-tight">Güzellik<br>Bizimle<br><span class="shm">Başlar</span></p>
         <div class="flex items-center gap-2.5 mt-5">
           <a href="#" class="si w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-rose-900 hover:border-white transition-all" aria-label="Instagram"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
           <a href="#" class="si w-10 h-10 rounded-full border border-white/15 flex items-center justify-center hover:bg-white hover:text-rose-900 hover:border-white transition-all" aria-label="YouTube"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
@@ -184,34 +171,39 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#FFFAF7;color:#3A0F21
         </div>
       </div>
       <div>
-        <p class="footer-title mb-4">Menü</p>
+        <p class="font-display font-700 text-[10px] uppercase tracking-[.15em] text-white/20 mb-4">Menü</p>
         <ul class="space-y-2">
-          <li><a href="index.html#hizmetler" class="menu-link">Hizmetler</a></li>
-          <li><a href="index.html#hakkimizda" class="menu-link">Hakkımızda</a></li>
-          <li><a href="index.html#galeri" class="menu-link">Galeri</a></li>
-          <li><a href="index.html#iletisim" class="menu-link">İletişim</a></li>
+          <li><a href="index.html#hizmetler" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">Hizmetler</a></li>
+          <li><a href="index.html#hakkimizda" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">Hakkımızda</a></li>
+          <li><a href="index.html#galeri" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">Galeri</a></li>
+          <li><a href="index.html#iletisim" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">İletişim</a></li>
         </ul>
       </div>
       <div>
-        <p class="footer-title mb-4">İletişim</p>
+        <p class="font-display font-700 text-[10px] uppercase tracking-[.15em] text-white/20 mb-4">İletişim</p>
         <ul class="space-y-2">
-          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><span class="contact-text">Nişantaşı, İstanbul</span></li>
-          <li class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><a href="tel:+902121234567" class="contact-text hover:text-white transition-colors cursor-pointer">+90 212 123 4567</a></li>
-          <li class="flex items-center gap-2"><i data-lucide="mail" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><a href="mailto:merhaba@rose.beauty" class="contact-text hover:text-white transition-colors cursor-pointer">merhaba@rose.beauty</a></li>
+          <li class="flex items-center gap-2"><i data-lucide="map-pin" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><span class="font-body font-400 text-sm text-white/35">Nişantaşı, İstanbul</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><a href="tel:+902121234567" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">+90 212 123 4567</a></li>
+          <li class="flex items-center gap-2"><i data-lucide="mail" class="w-3 h-3 text-rose-400 flex-shrink-0"></i><a href="mailto:merhaba@rose.beauty" class="font-body font-400 text-sm text-white/35 hover:text-white transition-colors">merhaba@rose.beauty</a></li>
         </ul>
       </div>
     </div>
     <div class="border-t border-white/8 pt-5 flex flex-col md:flex-row items-center justify-between gap-3">
-      <p class="copyright">© 2024 ROSÉ Beauty Studio. Tüm hakları saklıdır.</p>
+      <p class="font-body font-400 text-[10px] text-white/12">© 2024 ROSÉ Beauty Studio. Tüm hakları saklıdır.</p>
       <div class="flex gap-5">
-        <a href="gizlilik.html" class="copyright hover:text-white/25 transition-colors cursor-pointer">Gizlilik</a>
-        <a href="kosullar.html" class="copyright hover:text-white/25 transition-colors cursor-pointer">Koşullar</a>
-        <a href="kvkk.html" class="copyright hover:text-white/25 transition-colors cursor-pointer">KVKK</a>
+        <a href="gizlilik.html" class="font-body font-400 text-[10px] text-white/12 hover:text-white/25 transition-colors">Gizlilik</a>
+        <a href="kosullar.html" class="font-body font-400 text-[10px] text-white/12 hover:text-white/25 transition-colors">Koşullar</a>
+        <a href="kvkk.html" class="font-body font-400 text-[10px] text-white/12 hover:text-white/25 transition-colors">KVKK</a>
       </div>
     </div>
   </div>
 </footer>
 
-<script>lucide.createIcons();</script>
+<script>
+lucide.createIcons();
+function toggleMenu(){const m=document.getElementById('mMenu'),i=document.getElementById('mIco');m.classList.toggle('on');i.setAttribute('data-lucide',m.classList.contains('on')?'x':'menu');lucide.createIcons()}
+const ro=new IntersectionObserver(e=>{e.forEach(el=>{if(el.isIntersecting){el.target.classList.add('on');ro.unobserve(el.target)}})});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+</script>
 </body>
 </html>

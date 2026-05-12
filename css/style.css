@@ -70,7 +70,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#FFFAF7;color:#3A0F21
 @keyframes f3d{0%,100%{transform:translateY(0) rotateY(0)}25%{transform:translateY(-12px) rotateY(5deg)}75%{transform:translateY(-18px) rotateY(-5deg)}}.f3d{animation:f3d 7s ease-in-out infinite;transform-style:preserve-3d}
 
 /* Mobile Menu */
-.mm{clip-path:circle(0% at calc(100% - 30px) 30px);transition:clip-path .7s var(--eio)}.mm.open{clip-path:circle(150% at calc(100% - 30px) 30px)}
+.mm{clip-path:circle(0% at calc(100% - 30px) 30px);transition:clip-path .7s var(--eio)}.mm.on{clip-path:circle(150% at calc(100% - 30px) 30px)}
 
 /* Hover Line */
 .hl{width:0;height:1px;background:#D4738C;transition:width .45s var(--eo)}.hv:hover .hl{width:100%}
@@ -94,3 +94,13 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#FFFAF7;color:#3A0F21
 .tgrid{display:grid;grid-template-columns:1fr;gap:1rem}
 @media(min-width:768px){.tgrid{grid-template-columns:1fr 1fr;gap:1.5rem}}
 @media(min-width:1024px){.tgrid{grid-template-columns:1fr 1fr 1fr;gap:1.5rem}}
+
+/* Date input - hide native picker, use custom icon */
+.dt{position:relative}
+.dt::-webkit-calendar-picker-indicator{opacity:0;position:absolute;right:0;top:0;width:100%;height:100%;cursor:pointer;z-index:5}
+
+/* Horizontal scroll tags */
+.no-scrollbar{scrollbar-width:none;-ms-overflow-style:none;display:flex;gap:.75rem;padding-bottom:.75rem}
+.no-scrollbar::-webkit-scrollbar{display:none}
+@keyframes hst{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.hst{display:flex;gap:.75rem;animation:hst 25s linear infinite;white-space:nowrap}
