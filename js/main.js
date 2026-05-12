@@ -15,9 +15,9 @@ function toggleMenu(){mO=!mO;const m=document.getElementById('mMenu'),i=document
 window.addEventListener('scroll',()=>{const g=document.querySelector('#nav .gl');if(window.scrollY>60){g.style.background='rgba(255,250,247,.9)';g.style.boxShadow='0 8px 30px rgba(60,20,30,.06)'}else{g.style.background='rgba(255,250,247,.55)';g.style.boxShadow='none'}});
 
 // Hero 5 Slides
-let cS=0,tS=5,sT;
-function goSl(n){document.querySelectorAll('.sl').forEach(s=>s.classList.remove('on'));document.querySelectorAll('.sdot').forEach(d=>d.classList.remove('on'));document.querySelectorAll('.sl')[n].classList.add('on');document.querySelectorAll('.sdot')[n].classList.add('on');cS=n;clearInterval(sT);sT=setInterval(()=>goSl((cS+1)%tS),5500)}
-sT=setInterval(()=>goSl((cS+1)%tS),5500);
+let cS=0,tS=7,sT;
+function goSl(n){document.querySelectorAll('.sl').forEach(s=>s.classList.remove('on'));document.querySelectorAll('.sdot').forEach(d=>d.classList.remove('on'));document.querySelectorAll('.sl')[n].classList.add('on');document.querySelectorAll('.sdot')[n].classList.add('on');cS=n;clearInterval(sT);sT=setInterval(()=>goSl((cS+1)%tS),6000)}
+sT=setInterval(()=>goSl((cS+1)%tS),6000);
 
 // Reveal
 const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('on')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});

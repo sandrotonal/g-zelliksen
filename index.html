@@ -52,14 +52,16 @@ tailwind.config={theme:{extend:{fontFamily:{display:['Syne','sans-serif'],body:[
   </div>
 </div>
 
-<!-- HERO - 5 Slides -->
+<!-- HERO - 7 Slides -->
 <section class="relative h-screen overflow-hidden bg-dark">
   <div id="slider" class="absolute inset-0">
-    <div class="sl on"><img src="https://images.unsplash.com/photo-1619451334792-150fd785ee74?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
+    <div class="sl on"><img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
+    <div class="sl"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
     <div class="sl"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
     <div class="sl"><img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
-    <div class="sl"><img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
-    <div class="sl"><img src="https://images.unsplash.com/photo-1583241475880-083f84372725?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
+    <div class="sl"><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
+    <div class="sl"><img src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
+    <div class="sl"><img src="https://images.unsplash.com/photo-1487412912498-0447578fcca8?w=1600&h=1000&fit=crop&q=80" class="w-full h-full object-cover"></div>
   </div>
   <div class="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/30 to-dark/50 z-10"></div>
   <div class="relative z-20 h-full flex flex-col justify-end pb-14 md:pb-20 px-5 md:px-10 max-w-7xl mx-auto">
@@ -70,12 +72,14 @@ tailwind.config={theme:{extend:{fontFamily:{display:['Syne','sans-serif'],body:[
       <a href="#hizmetler" class="bl bg-white text-rose-900 px-6 py-2.5 rounded-full font-display font-700 text-[10px] uppercase tracking-[.1em] flex items-center gap-1.5">Keşfet <i data-lucide="arrow-down" class="w-3.5 h-3.5"></i></a>
       <a href="#iletisim" class="font-body font-500 text-[10px] uppercase tracking-[.1em] text-white/35 hover:text-white transition-colors">Randevu Al →</a>
     </div>
-    <div class="flex items-center gap-1.5 mt-6 rv d4">
+    <div class="flex items-center gap-1.5 mt-6">
       <div class="sdot on" onclick="goSl(0)"></div>
       <div class="sdot" onclick="goSl(1)"></div>
       <div class="sdot" onclick="goSl(2)"></div>
       <div class="sdot" onclick="goSl(3)"></div>
       <div class="sdot" onclick="goSl(4)"></div>
+      <div class="sdot" onclick="goSl(5)"></div>
+      <div class="sdot" onclick="goSl(6)"></div>
     </div>
   </div>
 </section>
@@ -83,16 +87,38 @@ tailwind.config={theme:{extend:{fontFamily:{display:['Syne','sans-serif'],body:[
 <!-- MARQUEE -->
 <div class="py-2.5 bg-rose-900 overflow-hidden">
   <div class="mq flex whitespace-nowrap">
-    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Bakımı</span><span class="text-white/8 mx-1">✦</span>
-    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Makyaj</span><span class="text-white/8 mx-1">✦</span>
-    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Saç Tasarımı</span><span class="text-white/8 mx-1">✦</span>
-    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Nail Art</span><span class="text-white/8 mx-1">✦</span>
-    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">SPA</span><span class="text-white/8 mx-1">✦</span>
-    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Lazer</span><span class="text-white/8 mx-1">✦</span>
-    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Bakımı</span><span class="text-white/8 mx-1">✦</span>
-    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Makyaj</span><span class="text-white/8 mx-1">✦</span>
-    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Saç Tasarımı</span><span class="text-white/8 mx-1">✦</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Makyaj</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Saç Tasarımı</span>
     <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Nail Art</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">SPA & Masaj</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Epilasyon</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Medikal Bakım</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Bronzlaşma</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Güneş Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Anti-Aging</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Vücut Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Gençleştirme</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Kirpik & Kaş</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Lazer</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Yenileme</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Lüks Bakım</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Makyaj</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Saç Tasarımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Nail Art</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">SPA & Masaj</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Epilasyon</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Medikal Bakım</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Bronzlaşma</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Güneş Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Anti-Aging</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Vücut Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Gençleştirme</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Kirpik & Kaş</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Lazer</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Yenileme</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Lüks Bakım</span>
   </div>
 </div>
 
@@ -125,40 +151,40 @@ tailwind.config={theme:{extend:{fontFamily:{display:['Syne','sans-serif'],body:[
     <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d5 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">15</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Cilt Yenileme</h3><div class="hl mt-1.5"></div></div></div></div>
     <div class="flex-shrink-0 w-[72vw] md:w-[28vw] lg:w-[22vw] snap-center rv d1 group"><div class="tc relative overflow-hidden rounded-xl aspect-[3/4] cursor-pointer" onmousemove="tilt(event,this)" onmouseleave="untilt(this)"><img src="https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=600&h=800&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"><div class="absolute inset-0 bg-gradient-to-t from-dark/80 via-transparent to-transparent"></div><div class="absolute bottom-0 left-0 right-0 p-4 md:p-5"><span class="font-body font-600 text-[7px] md:text-[8px] uppercase tracking-[.2em] text-rose-300/50">16</span><h3 class="font-display font-700 text-base md:text-lg text-white mt-0.5">Lüks Bakım</h3><div class="hl mt-1.5"></div></div></div></div>
   </div>
-  <div class="hst">
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Cilt Bakımı</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Makyaj</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Saç Tasarımı</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Nail Art</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">SPA & Masaj</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Epilasyon</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Medikal Bakım</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Bronzlaşma</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Güneş Bakımı</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Anti-Aging</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Vücut Bakımı</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Gençleştirme</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Kirpik & Kaş</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Lazer</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Cilt Yenileme</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Lüks Bakım</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Cilt Bakımı</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Makyaj</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Saç Tasarımı</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Nail Art</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">SPA & Masaj</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Epilasyon</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Medikal Bakım</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Bronzlaşma</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Güneş Bakımı</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Anti-Aging</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Vücut Bakımı</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Gençleştirme</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Kirpik & Kaş</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Lazer</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Cilt Yenileme</span>
-    <span class="flex-shrink-0 px-4 py-2 rounded-full bg-rose-100/60 text-rose-800 font-display font-600 text-xs">Lüks Bakım</span>
-  </div>
+  <div class="py-2.5 bg-rose-900 overflow-hidden"><div class="hst">
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Makyaj</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Saç Tasarımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Nail Art</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">SPA & Masaj</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Epilasyon</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Medikal Bakım</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Bronzlaşma</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Güneş Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Anti-Aging</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Vücut Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Gençleştirme</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Kirpik & Kaş</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Lazer</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Yenileme</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Lüks Bakım</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Makyaj</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Saç Tasarımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Nail Art</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">SPA & Masaj</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Epilasyon</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Medikal Bakım</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Bronzlaşma</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Güneş Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Anti-Aging</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Vücut Bakımı</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Gençleştirme</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Kirpik & Kaş</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Lazer</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Cilt Yenileme</span>
+    <span class="font-display font-700 text-[9px] uppercase tracking-[.25em] text-white/20 mx-6">Lüks Bakım</span>
+  </div></div>
 </section>
 
 <!-- HAKKIMIZDA -->
@@ -235,6 +261,8 @@ tailwind.config={theme:{extend:{fontFamily:{display:['Syne','sans-serif'],body:[
       <div class="rv d4 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
       <div class="rv d5 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
       <div class="rv d1 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d2 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1507652313519-d4e9174996dd?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
+      <div class="rv d3 overflow-hidden rounded-lg group aspect-square"><img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop&q=80" class="w-full h-full object-cover ih grayscale group-hover:grayscale-0 transition-all duration-700"></div>
     </div>
   </div>
 </section>
