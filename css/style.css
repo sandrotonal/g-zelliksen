@@ -85,19 +85,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:#FFFAF7;color:#3A0F21
 .wf{position:fixed;bottom:20px;right:20px;z-index:100;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .25s var(--eo)}.wf:hover{transform:scale(1.08)}
 
 /* Form */
-.fi{transition:border-color .25s,box-shadow .25s}.fi:focus{border-color:#D4738C;box-shadow:0 0 0 3px rgba(212,115,140,.12);outline:none}
-
-/* Social */
-.si{transition:all .25s var(--eo)}.si:hover{transform:translateY(-2px) scale(1.05)}
-
-/* Testimonial grid on mobile */
-.tgrid{display:grid;grid-template-columns:1fr;gap:1rem}
-@media(min-width:768px){.tgrid{grid-template-columns:1fr 1fr;gap:1.5rem}}
-@media(min-width:1024px){.tgrid{grid-template-columns:1fr 1fr 1fr;gap:1.5rem}}
-
-/* Date input - hide native picker, use custom icon */
-.dt{position:relative}
-.dt::-webkit-calendar-picker-indicator{opacity:0;position:absolute;right:0;top:0;width:100%;height:100%;cursor:pointer;z-index:5}
 
 /* Horizontal scroll tags */
 .no-scrollbar{scrollbar-width:none;-ms-overflow-style:none;display:flex;gap:.75rem;padding-bottom:.75rem}
