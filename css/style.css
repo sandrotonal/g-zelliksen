@@ -151,15 +151,6 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 @keyframes fg{0%,100%{box-shadow:0 0 0 0 rgba(212,115,140,.2)}50%{box-shadow:0 0 0 6px rgba(212,115,140,.08)}}
 .fg{animation:fg 1s ease 3}
 
-/* Price card */
-.fp{transition:all .35s var(--eo)}.fp:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(212,115,140,.08);border-color:rgba(212,115,140,.2)!important}
-
-/* Time slots */
-.tsb{background:#fff;border:1px solid rgba(212,115,140,.15);border-radius:1rem;padding:.45rem .25rem;cursor:pointer;transition:all .25s var(--eo);display:flex;flex-direction:column;align-items:center;gap:.05rem;min-height:52px;font-family:'Plus Jakarta Sans',sans-serif}
-.tsb:hover{border-color:#D4738C;background:rgba(212,115,140,.03)}
-.tsb.on{border-color:#D4738C;background:rgba(212,115,140,.08);box-shadow:0 0 0 3px rgba(212,115,140,.1)}
-.tsb.on span:first-child{color:#5C1F33}
-
 /* Accordion */
 .mos{border-top:1px solid rgba(60,15,33,.06);margin-top:1.25rem;padding-top:.5rem}
 .mosi{display:flex;flex-direction:column;gap:.25rem}

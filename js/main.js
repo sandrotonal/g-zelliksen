@@ -1,6 +1,4 @@
-if (typeof lucide !== 'undefined') {
-  lucide.createIcons();
-}
+document.addEventListener('DOMContentLoaded',()=>{if(typeof lucide!=='undefined')lucide.createIcons()});
 
 // Cursor
 const cd=document.getElementById('cd'),cr=document.getElementById('cr');
@@ -51,8 +49,11 @@ if(tS > 0) sT=setInterval(()=>goSl((cS+1)%tS),6000);
 })();
 
 // Reveal
-const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('on')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.rv,.rl,.rr,.rs,.iw,.lg').forEach(el=>obs.observe(el));
+const obs=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('on')})},{threshold:.05,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.rv,.rl,.rr,.rs,.iw,.lg').forEach(el=>{
+  obs.observe(el);
+  if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('on');
+});
 
 // Tilt
 function tilt(e,el){const r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;el.style.transform=`perspective(800px) rotateX(${((r.height/2-y)/r.height)*6}deg) rotateY(${((x-r.width/2)/r.width)*6}deg) scale3d(1.015,1.015,1.015)`}
@@ -106,7 +107,13 @@ function untilt(el){el.style.transform='perspective(800px) rotateX(0) rotateY(0)
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const h=a.getAttribute('href');if(!h||h==='#')return;e.preventDefault();const t=document.querySelector(h);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 
 // Loading screen
-window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('ld')?.classList.add('off')},500)});
+const ld=document.getElementById('ld');
+if(ld){
+  const fo=()=>setTimeout(()=>ld.classList.add('off'),700);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fo);
+  else fo();
+  window.addEventListener('load',()=>ld.classList.add('off'));
+}
 
 // Lightbox
 document.getElementById('galeri')?.addEventListener('click',function(e){
@@ -138,9 +145,10 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')cl()});
 // Cookie
 (function(){
   const b=document.getElementById('cb'),a=document.getElementById('ca');
-  if(!b||!a||localStorage.getItem('rc'))return;
+  if(!b||!a)return;
+  try{if(localStorage.getItem('rc'))return}catch(e){}
   setTimeout(()=>b.classList.add('on'),1e3);
-  a.addEventListener('click',()=>{localStorage.setItem('rc','1');b.classList.remove('on')});
+  a.addEventListener('click',()=>{try{localStorage.setItem('rc','1')}catch(e){}b.classList.remove('on')});
 })();
 
 // Form validation + toast
@@ -148,20 +156,9 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')cl()});
   const f=document.getElementById('af'),t=document.getElementById('tst');
   if(!f||!t)return;
 
-  // Set min date to tomorrow
+  // Set default date to tomorrow
   const rd=document.getElementById('rd');
-  if(rd){const d=new Date();d.setDate(d.getDate()+1);rd.min=d.toISOString().split('T')[0];rd.value=d.toISOString().split('T')[0]}
-
-  // Time slot selection
-  const rt=document.getElementById('rt');
-  document.querySelectorAll('#ts .tsb').forEach(b=>{
-    b.addEventListener('click',function(){
-      document.querySelectorAll('#ts .tsb').forEach(x=>x.classList.remove('on'));
-      this.classList.add('on');
-      if(rt)rt.value=this.dataset.time;
-    });
-    if(b===document.querySelector('#ts .tsb:first-child')){b.classList.add('on');if(rt)rt.value=b.dataset.time}
-  });
+  if(rd){const d=new Date();d.setDate(d.getDate()+1);rd.value=d.toISOString().split('T')[0]}
 
   const sh=(m,ty)=>{t.textContent=m;t.className='tst '+ty;void t.offsetWidth;t.classList.add('on');clearTimeout(t._x);t._x=setTimeout(()=>t.classList.remove('on'),4e3)};
   f.addEventListener('submit',function(e){
@@ -169,18 +166,16 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')cl()});
     const n=f.querySelector('[name="name"]')?.value.trim();
     const p=f.querySelector('[name="phone"]')?.value.trim();
     const d=f.querySelector('[name="date"]')?.value;
-    const tm=f.querySelector('[name="time"]')?.value;
+    const tm=f.querySelector('[name="time"]')?.value.trim();
     const s=f.querySelector('[name="service"]')?.value;
     if(!n||n.length<2)return sh('Adınız en az 2 karakter olmalıdır','e');
     if(!p||!/^[+]?[\d\s()-]{7,20}$/.test(p))return sh('Geçerli bir telefon numarası giriniz','e');
     if(!d)return sh('Lütfen bir tarih seçiniz','e');
-    if(!tm)return sh('Lütfen bir saat aralığı seçiniz','e');
+    if(!tm)return sh('Lütfen bir saat giriniz','e');
     if(!s)return sh('Lütfen bir hizmet seçiniz','e');
     sh('Randevu talebiniz alındı! En kısa sürede sizi arayacağız.','s');
     f.reset();
-    if(rd){const d=new Date();d.setDate(d.getDate()+1);rd.min=d.toISOString().split('T')[0];rd.value=d.toISOString().split('T')[0]}
-    if(rt){rt.value=''}
-    document.querySelectorAll('#ts .tsb').forEach((b,i)=>{b.classList.remove('on');if(i===0){b.classList.add('on');if(rt)rt.value=b.dataset.time}});
+    if(rd){const d=new Date();d.setDate(d.getDate()+1);rd.value=d.toISOString().split('T')[0]}
   });
 })();
 
