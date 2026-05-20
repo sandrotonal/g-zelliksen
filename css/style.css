@@ -151,6 +151,48 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,te
 @keyframes fg{0%,100%{box-shadow:0 0 0 0 rgba(212,115,140,.2)}50%{box-shadow:0 0 0 6px rgba(212,115,140,.08)}}
 .fg{animation:fg 1s ease 3}
 
+/* Price card */
+.fp{transition:all .35s var(--eo)}.fp:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(212,115,140,.08);border-color:rgba(212,115,140,.2)!important}
+
+/* Time slots */
+.tsb{background:#fff;border:1px solid rgba(212,115,140,.15);border-radius:1rem;padding:.45rem .25rem;cursor:pointer;transition:all .25s var(--eo);display:flex;flex-direction:column;align-items:center;gap:.05rem;min-height:52px;font-family:'Plus Jakarta Sans',sans-serif}
+.tsb:hover{border-color:#D4738C;background:rgba(212,115,140,.03)}
+.tsb.on{border-color:#D4738C;background:rgba(212,115,140,.08);box-shadow:0 0 0 3px rgba(212,115,140,.1)}
+.tsb.on span:first-child{color:#5C1F33}
+
+/* Accordion */
+.mos{border-top:1px solid rgba(60,15,33,.06);margin-top:1.25rem;padding-top:.5rem}
+.mosi{display:flex;flex-direction:column;gap:.25rem}
+.msi{border-radius:.75rem;overflow:hidden;transition:background .25s;font-family:'Plus Jakarta Sans',sans-serif}
+.msiq{display:flex;align-items:center;justify-content:space-between;width:100%;padding:.6rem .85rem;background:none;border:none;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:500;color:#3A0F21;text-align:left;gap:.5rem;transition:all .2s var(--eo);border-radius:.75rem}
+.msiq:hover{background:rgba(212,115,140,.04)}
+.msiq svg{width:14px;height:14px;color:#D4738C;flex-shrink:0;transition:transform .35s var(--eo)}
+.msi.on .msiq svg{transform:rotate(180deg)}
+.msia{max-height:0;overflow:hidden;transition:max-height .4s var(--eo),opacity .3s var(--eo);opacity:0;padding:0 .85rem}
+.msi.on .msia{max-height:200px;opacity:1;padding:.15rem .85rem .7rem}
+.msia p{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;color:rgba(60,15,33,.55);line-height:1.7;font-weight:300}
+
+/* Modal */
+.mo{position:fixed;inset:0;z-index:9998;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .4s var(--eo),visibility .4s var(--eo);padding:1rem}
+.mo.on{opacity:1;visibility:visible}
+.mob{position:absolute;inset:0;background:rgba(17,4,8,.75);backdrop-filter:blur(6px)}
+.moc{position:relative;background:#FFFAF7;border-radius:1.5rem;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;display:flex;flex-direction:column;transform:scale(.92) translateY(20px);transition:transform .5s var(--eo);box-shadow:0 40px 80px rgba(17,4,8,.35)}
+.mo.on .moc{transform:scale(1) translateY(0)}
+.mox{position:absolute;top:1rem;right:1rem;width:36px;height:36px;border-radius:50%;background:rgba(255,250,247,.15);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;transition:all .3s var(--eo);font-size:.875rem;line-height:1;z-index:2;backdrop-filter:blur(4px)}
+.mox:hover{background:rgba(255,255,255,.25)}
+.mor{position:relative;width:100%;aspect-ratio:16/10;overflow:hidden;border-radius:1.5rem 1.5rem 0 0}
+.moi{width:100%;height:100%;object-fit:cover}
+.mot{padding:1.75rem 2rem 2rem}
+.mon{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#D4738C}
+.moh{font-family:'Syne',sans-serif;font-weight:800;font-size:1.5rem;color:#3A0F21;margin-top:.35rem;line-height:1.2}
+.most{display:flex;gap:1rem;margin-top:.85rem;flex-wrap:wrap}
+.most span{font-family:'Plus Jakarta Sans',sans-serif;font-size:.75rem;color:rgba(60,15,33,.45);display:flex;align-items:center;gap:.35rem;font-weight:500}
+.most span svg{width:14px;height:14px;color:#D4738C;flex-shrink:0}
+.mod{font-family:'Plus Jakarta Sans',sans-serif;font-size:.875rem;color:rgba(60,15,33,.6);line-height:1.8;margin-top:1rem;font-weight:300}
+.moa{margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap}
+.mobr{background:#3A0F21;color:#fff;border:none;padding:.75rem 2rem;border-radius:999px;font-family:'Syne',sans-serif;font-weight:700;font-size:.8rem;cursor:pointer;transition:all .35s var(--eo);letter-spacing:.02em}
+.mobr:hover{background:#5C1F33;transform:translateY(-1px);box-shadow:0 8px 25px rgba(60,15,33,.2)}
+
 /* Reduced Motion */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
