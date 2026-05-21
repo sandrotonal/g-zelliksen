@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="border-t border-white\/8 pt-4 md:pt-5 flex flex-col md:flex-row items-center justify-between gap-2 md:gap-3">
-      <p class="font-body font-400 text-[9px] md:text-[10px] text-white\/12">\u00a9 2026 Es&amp;AS Beauty. T\u00fcm haklar\u0131 sakl\u0131d\u0131r. <a href="https:\/\/gucluyumhe.dev\/" target="_blank" class="hover:text-white\/30 transition-colors">gucluyumhe.dev</a></p>
+      <p class="font-body font-400 text-[9px] md:text-[10px] text-white\/12">\u00a9 2026 ROS\u00c9 Beauty Studio. T\u00fcm haklar\u0131 sakl\u0131d\u0131r. <a href="https:\/\/gucluyumhe.dev\/" target="_blank" class="hover:text-white\/30 transition-colors">gucluyumhe.dev</a></p>
       <div class="flex gap-4 md:gap-5"><a href="gizlilik.html" class="font-body font-400 text-[9px] md:text-[10px] text-white\/12 hover:text-white\/25 transition-colors">Gizlilik</a><a href="kosullar.html" class="font-body font-400 text-[9px] md:text-[10px] text-white\/12 hover:text-white\/25 transition-colors">Ko\u015fullar</a><a href="kvkk.html" class="font-body font-400 text-[9px] md:text-[10px] text-white\/12 hover:text-white\/25 transition-colors">KVKK</a></div>
     </div>
   </div>
